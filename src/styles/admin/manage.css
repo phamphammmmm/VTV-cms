@@ -1,0 +1,101 @@
+/* h3 {
+  margin: 0;
+}
+.manage-overview {
+  display: flex;
+  gap: 15px;
+  padding: 10px;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: 2px solid #e6eae9;
+  border-radius: 10px;
+  flex-direction: column;
+}
+.space-line {
+  margin: 0px 15px;
+  border: 1px solid #e6eae9;
+  width: 95%;
+}
+
+.menu-search {
+  display: flex;
+  gap: 20px;
+}
+.search-filter {
+  gap: 5px;
+  display: flex;
+  border-radius: 10px;
+  border: 1px solid #e6eae9;
+  padding: 5px 10px;
+}
+.btn-search-primary {
+  background: none;
+  border: 2px solid #e6eae9;
+  display: flex;
+  border-radius: 10px;
+}
+
+
+/* table */
+/* table {
+  width: 100%;
+}
+.item {
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.manage-member {
+  display: flex;
+  gap: 5px;
+}
+
+.manage-container {
+  margin-top: 30px;
+} */
+
+/* .popup-overlay,
+.popup-overlay-edit {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+} */
+/* 
+.popup-content {
+  width: 350px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.popup-content form {
+  display: grid;
+  gap: 10px;
+}
+
+.popup-content input[type="text"]::placeholder {
+  font-size: 15px;
+  margin: 5px 10px;
+}
+
+.popup-content input[type="text"]:hover {
+  border-color: #121927;
+}
+
+.popup-content input[type="password"] {
+  height: 35px;
+  border: 1px solid #e6eae9;
+  border-radius: 5px;
+  padding: 5px 10px;
+} */
