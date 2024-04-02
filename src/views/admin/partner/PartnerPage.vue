@@ -2,7 +2,7 @@
     <div class="partner">
         <div class="partner-body">
             <div class="partner-header">
-                <h3>Team partner</h3>
+                <span>Team partner</span>
                 <PopupWrapper>
                     <template #header>
                         <div class="popover">Add new +</div>
@@ -18,16 +18,16 @@
             <div class="partner-search">
                 <div class="menu-search">
                     <div class="search-filter">
-                        <funnel-icon class="partner-icon" />
-                        <h3>Filter</h3>
+                        <i class="pi pi-filter" style="font-size: 1rem"></i>
+                        <span>Filter</span>
                     </div>
                     <div class="search-filter">
-                        <bars-3-bottom-right-icon class="partner-icon" />
-                        <h3>Sort</h3>
+                        <i class="pi pi-sort-alt" style="font-size: 1rem"></i>
+                        <span>Sort</span>
                     </div>
                 </div>
                 <button class="btn-search-primary">
-                    <magnifying-glass-icon class="partner-icon" />
+                    <i class="pi pi-search" style="font-size: 1rem"></i>
                 </button>
             </div>
         </div>
@@ -63,23 +63,25 @@
                                     {{ item.PostbackReplaceId }}
                                 </div>
                             </td>
-                            <td class="action-buttons">
-                                <PopupWrapper>
-                                    <template #header>
-                                        <div class="popover">
-                                            <pencil-square-icon class="partner-icon"
-                                                @click="openEditPartner(item.ID)" />
-                                        </div>
-                                    </template>
-                                    <template #content>
-                                        <div class="popover-content">
-                                            <EditPartner :partnerId="selectedPartnerId" />
-                                        </div>
-                                    </template>
-                                </PopupWrapper>
-                                <button @click="deleteItem(item.Id)" class="btn-delete-primary">
-                                    <trash-icon class="partner-icon" />
-                                </button>
+                            <td>
+                                <div class="action-buttons">
+                                    <PopupWrapper>
+                                        <template #header>
+                                            <div class="popover">
+                                                <pencil-square-icon class="partner-icon"
+                                                    @click="openEditPartner(item.ID)" />
+                                            </div>
+                                        </template>
+                                        <template #content>
+                                            <div class="popover-content">
+                                                <EditPartner :partnerId="selectedPartnerId" />
+                                            </div>
+                                        </template>
+                                    </PopupWrapper>
+                                    <button @click="deleteItem(item.Id)" class="btn-delete-primary">
+                                        <trash-icon class="partner-icon" />
+                                    </button>
+                                </div>
                             </td>
                         </tr>
                     </tbody>
@@ -93,7 +95,7 @@
 
 <script>
 import axios from 'axios';
-import { PencilSquareIcon, MagnifyingGlassIcon, Bars2Icon, FunnelIcon, Bars3BottomRightIcon, TrashIcon } from '@heroicons/vue/24/solid';
+import { PencilSquareIcon, Bars2Icon, TrashIcon } from '@heroicons/vue/24/solid';
 import PopupWrapper from '@/components/PopupWrapper.vue';
 import AddPartner from '@/views/admin/partner/AddPartner.vue';
 import EditPartner from '@/views/admin/partner/EditPartner.vue';
@@ -103,8 +105,8 @@ export default {
     name: 'PartnerPage',
     components: {
         PencilSquareIcon, PopupWrapper, Pagination, TrashIcon,
-        MagnifyingGlassIcon, Bars2Icon, FunnelIcon,
-        Bars3BottomRightIcon, AddPartner, EditPartner,
+        Bars2Icon,
+        AddPartner, EditPartner,
     },
     data() {
         return {
@@ -185,7 +187,7 @@ export default {
     background: #fff;
     border-radius: 10px;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .partner-header {
@@ -224,28 +226,31 @@ export default {
 }
 
 .list-partner table {
-    margin-top: 20px;
-    border-collapse: collapse;
-    width: 100%;
+    min-width: 100%;
 }
+
+.list-partner tr {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border-width: 0 0 1px 0;
+    color: #334155;
+    background: #ffffff;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s, outline-color 0.2s;
+}
+
 
 .list-partner th,
 .list-partner td {
     padding: 10px;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 1px solid #ddd;
 }
 
 .list-partner th {
-    background-color: #f2f2f2;
+
+    font-size: 14px;
+    font-family: "Inter var", sans-serif;
+    color: #334155;
     text-align: left;
-}
-
-.list-partner tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-.list-partner tr:hover {
-    background-color: #ddd;
 }
 
 .partner-icon {

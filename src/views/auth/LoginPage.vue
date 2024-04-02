@@ -1,24 +1,32 @@
 <template>
     <div class="login">
         <div class="login-form">
-            <h2>Welcome to VTV Line</h2>
-            <p>Sign in to your account below</p>
+            <div class="login-title">
+                <h2>Welcome, VTV Line!</h2>
+                <span>Sign in to continue</span>
+            </div>
             <form @submit.prevent="login" enctype="multipart/form-data">
-                <label for="email">Email:</label>
-                <input type="email" v-model="formData.email" placeholder="user@gmail.com" />
+                <div class="form-row">
+                    <label for="email">Email</label>
+                    <input type="email" v-model="formData.email" placeholder="Email address" />
+                </div>
 
-                <label for="password">Password:</label>
-                <input type="password" v-model="formData.password" placeholder="Your password" />
-
+                <div class="form-row">
+                    <label for="password">Password</label>
+                    <input type="password" v-model="formData.password" placeholder="Password" />
+                </div>
                 <p class="text-center">
-                    Forgot password? <a href="#">Reset password</a>
+                    <span>
+                        Forgot password?
+                    </span>
+                    <a href="#">Reset password</a>
                 </p>
                 <button type="submit" class="btn-login-primary">Login</button>
             </form>
-            <p>
+            <!-- <p>
                 Don't you have an account?
                 <router-link to="/register">Register Now</router-link>
-            </p>
+            </p> -->
         </div>
         <div class="login-image"></div>
     </div>
@@ -69,17 +77,9 @@ export default {
 </script>
 
 <style scoped>
-body {
-    background: rgb(255, 255, 255);
-    padding: 100px 40px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .login {
     box-shadow: -2px 1px 12px 4px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
     margin-top: 15%;
     border-radius: 10px;
     background: white;
@@ -103,7 +103,6 @@ body {
     padding: 20px;
 }
 
-h2,
 p {
     text-align: center;
     /* Căn chỉnh nội dung văn bản ở giữa */
@@ -114,12 +113,18 @@ a {
     color: #321fdb;
 }
 
+.login-title {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .form-row {
-    gap: 5px;
+    margin-bottom: 15px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    /* Căn chỉnh các phần tử trong form sang trái */
 }
 
 input[type="email"],
@@ -141,5 +146,10 @@ input[type="password"] {
     margin-top: 10px;
     width: 100%;
     /* Đảm bảo nút login có kích thước 100% chiều rộng */
+}
+
+.text-center {
+    display: flex;
+    justify-content: space-between;
 }
 </style>

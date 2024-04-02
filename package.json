@@ -11,6 +11,7 @@
     "@heroicons/vue": "^2.1.1",
     "axios": "^1.6.7",
     "core-js": "^3.8.3",
+    "primeicons": "^7.0.0",
     "usemodal-vue3": "^0.3.7",
     "vue": "^3.2.13",
     "vue-bootstrap-modal": "^0.1.13",

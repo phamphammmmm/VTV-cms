@@ -5,8 +5,9 @@ import Dashboard from '@/views/admin/DashboardPage.vue';
 import LoginPage from '@/views/auth/LoginPage.vue';
 import RegisterPage from '@/views/auth/RegisterPage.vue';
 import ManagePage from '@/views/admin/user/ManagePage.vue';
-import Sms_Result from '@/views/admin/Sms_Result.vue';
-
+import TelecomPage from '@/views/admin/TelecomPage.vue';
+import DataPartnerPage
+    from '@/views/admin/DataPartnerPage.vue';
 const routes = [
     {
         path: '/login',
@@ -38,9 +39,14 @@ const routes = [
                 component: PartnerPage
             },
             {
-                path: 'sms_result',
-                name: 'Sms_Result',
-                component: Sms_Result
+                path: 'Telecom',
+                name: 'TelecomPage',
+                component: TelecomPage
+            },
+            {
+                path: 'DataPartner',
+                name: 'DataPartnerPage',
+                component: DataPartnerPage
             },
         ]
     }

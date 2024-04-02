@@ -2,7 +2,7 @@
     <div class="manage">
         <div class="manage-body">
             <div class="manage-header">
-                <h3>Team members</h3>
+                <span>Team members</span>
                 <PopupWrapper>
                     <template #header>
                         <span class="popover">Add new +</span>
@@ -18,19 +18,18 @@
             <div class="manage-search">
                 <div class="menu-search">
                     <div class="search-filter">
-                        <funnel-icon class="manage-icon" />
+                        <i class="pi pi-filter" style="font-size: 1rem"></i>
                         <span>Filter</span>
                     </div>
                     <div class="search-filter">
-                        <bars-3-bottom-right-icon class="manage-icon" />
+                        <i class="pi pi-sort-alt" style="font-size: 1rem"></i>
                         <span>Sort</span>
                     </div>
                 </div>
                 <button class="btn-search-primary">
-                    <magnifying-glass-icon class="manage-icon" />
+                    <i class="pi pi-search" style="font-size: 1rem"></i>
                 </button>
             </div>
-
         </div>
         <div class="manage-container">
             <div class="list-user" v-if="items.length > 0">
@@ -42,9 +41,8 @@
                             <th>Email</th>
                             <th>Created_at</th>
                             <th>Updated_at</th>
-                            <th class="action-buttons">
-                                <pencil-square-icon class="manage-icon" />
-                                <trash-icon class="manage-icon" />
+                            <th>
+                                <span>Actions</span>
                             </th>
                         </tr>
                     </thead>
@@ -52,10 +50,10 @@
                         <tr v-for="item in items" :key="item.id" class="user-information">
                             <td><input type="checkbox"></td>
                             <td>
-                                <div class="item" data-id="{{item.id}}">{{ item.Username }}</div>
+                                <div class="item" data-id="{{item.id}}">{{ item.username }}</div>
                             </td>
                             <td>
-                                <div class="item" data-id="{{item.id}}">{{ item.Email }}</div>
+                                <div class="item" data-id="{{item.id}}">{{ item.email }}</div>
                             </td>
                             <td>
                                 <div class="item" data-id="{{item.id}}">
@@ -67,22 +65,25 @@
                                     {{ formatDate(item.UpdatedAt) }}
                                 </div>
                             </td>
-                            <td class="action-buttons">
-                                <PopupWrapper>
-                                    <template #header>
-                                        <div class="popover">
-                                            <pencil-square-icon class="manage-icon" @click="openEditUser(item.ID)" />
-                                        </div>
-                                    </template>
-                                    <template #content>
-                                        <div class="popover-content">
-                                            <EditUser :userId="selectedUserId" />
-                                        </div>
-                                    </template>
-                                </PopupWrapper>
-                                <button @click="deleteItem(item.ID)" class="btn-delete-primary">
-                                    <trash-icon class="manage-icon" />
-                                </button>
+                            <td>
+                                <div class="action-buttons">
+                                    <PopupWrapper>
+                                        <template #header>
+                                            <div class="popover">
+                                                <pencil-square-icon class="manage-icon"
+                                                    @click="openEditUser(item.ID)" />
+                                            </div>
+                                        </template>
+                                        <template #content>
+                                            <div class="popover-content">
+                                                <EditUser :userId="selectedUserId" />
+                                            </div>
+                                        </template>
+                                    </PopupWrapper>
+                                    <button @click="deleteItem(item.ID)" class="btn-delete-primary">
+                                        <trash-icon class="manage-icon" />
+                                    </button>
+                                </div>
                             </td>
                         </tr>
                     </tbody>
@@ -96,19 +97,18 @@
 
 <script>
 import axios from 'axios';
-import { TrashIcon, PencilSquareIcon, MagnifyingGlassIcon, Bars2Icon, FunnelIcon, Bars3BottomRightIcon } from '@heroicons/vue/24/solid';
+import { TrashIcon, PencilSquareIcon, Bars2Icon } from '@heroicons/vue/24/solid';
 import PopupWrapper from '@/components/PopupWrapper.vue';
 import AddUser from './AddUser.vue';
 import EditUser from './EditUser.vue';
 import Pagination from '@/components/PaginationPage.vue';
 import { toast } from 'vue3-toastify';
 import 'vue3-toastify/dist/index.css';
+
 export default {
     name: 'ManagePage',
     components: {
-        PencilSquareIcon, PopupWrapper,
-        MagnifyingGlassIcon, Bars2Icon, FunnelIcon,
-        Bars3BottomRightIcon, TrashIcon,
+        PencilSquareIcon, PopupWrapper, Bars2Icon, TrashIcon,
         AddUser, EditUser,
         Pagination
     },
@@ -213,7 +213,7 @@ export default {
     background: #fff;
     border-radius: 10px;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .manage-header {
@@ -239,6 +239,10 @@ export default {
     align-items: center;
 }
 
+.space-line {
+    border: 1px solid #e2e8f0;
+}
+
 .btn-search-primary {
     border: none;
     background: none;
@@ -260,21 +264,13 @@ export default {
 .list-user th,
 .list-user td {
     padding: 10px;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 1px solid #e2e8f0;
 }
 
 .list-user th {
-    background-color: #f2f2f2;
     text-align: left;
 }
 
-.list-user tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-.list-user tr:hover {
-    background-color: #ddd;
-}
 
 .action-buttons {
     display: flex;

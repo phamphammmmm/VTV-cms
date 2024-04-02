@@ -1,5 +1,6 @@
 <template>
     <div class="dashboard-layout">
+        <!-- <AppTopbar /> -->
         <div class="dashboard-body">
             <NavbarPage />
             <div class="content">
@@ -11,9 +12,10 @@
 
 <script>
 import NavbarPage from '@/components/NavbarPage.vue';
+// import AppTopbar from '@/components/layout/AppTopbar.vue';
 export default {
     components: {
-        NavbarPage
+        NavbarPage,
     }
 }
 </script>
@@ -28,5 +30,6 @@ export default {
     flex: 1;
     width: 80%;
     padding: 0 30px;
+    margin-left: 350px;
 }
 </style>./DashBoard.vue

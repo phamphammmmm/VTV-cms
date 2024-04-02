@@ -2,47 +2,56 @@
     <div class="navbar">
         <ul class="menu-page">
             <li>
+                <div class="layout-menuitem-root-text">Home</div>
                 <router-link class="nav-link" to="/dashboard">
                     <div class="item-content">
-                        <squares-2X2-icon class="navbar-icon" />
-                        <h3>Dashboard</h3>
+                        <squares-2X2-icon class="primary-icon" />
+                        <span>Dashboard</span>
                     </div>
                 </router-link>
             </li>
             <li>
                 <router-link class="nav-link" to="/dashboard/report">
                     <div class="item-content">
-                        <wallet-icon class="navbar-icon" />
-                        <h3>Report</h3>
+                        <wallet-icon class="primary-icon" />
+                        <span>Report</span>
                     </div>
                 </router-link>
             </li>
             <li>
                 <router-link class="nav-link" to="/dashboard/manage">
                     <div class="item-content">
-                        <user-icon class="navbar-icon" />
-                        <h3>Manage</h3>
+                        <user-icon class="primary-icon" />
+                        <span>Manage</span>
                     </div>
                 </router-link>
             </li>
             <li>
                 <router-link class="nav-link" to="/dashboard/partner">
                     <div class="item-content">
-                        <user-icon class="navbar-icon" />
-                        <h3>Partner</h3>
+                        <user-icon class="primary-icon" />
+                        <span>Partner</span>
                     </div>
                 </router-link>
             </li>
-            <li><router-link class="nav-link" to="/dashboard/sms_result">
+            <li><router-link class="nav-link" to="/dashboard/telecom">
                     <div class="item-content">
-                        <circle-stack-icon class="navbar-icon" />
-                        <h3>Sms_result</h3>
+                        <circle-stack-icon class="primary-icon" />
+                        <span>Telecom</span>
                     </div>
-                </router-link></li>
+                </router-link>
+            </li>
+            <li><router-link class="nav-link" to="/dashboard/dataPartner">
+                    <div class="item-content">
+                        <circle-stack-icon class="primary-icon" />
+                        <span>Data_Partner</span>
+                    </div>
+                </router-link>
+            </li>
             <!-- <li>
                     <div @click="toggleSubMenu('data')" class="item-content">
-                        <circle-stack-icon class="navbar-icon" />
-                        <h3>Data</h3>
+                        <circle-stack-icon class="primary-icon" />
+                        <span>Data</span>
                     </div>
                     <ul v-if="isSubMenuOpen.data">
                         <li><router-link class="nav-link" to="/dashboard/partner">Partner</router-link></li>
@@ -53,8 +62,8 @@
             <li>
                 <router-link class="nav-link" to="">
                     <div class="item-content">
-                        <adjustments-horizontal-icon class="navbar-icon" />
-                        <h3>More</h3>
+                        <adjustments-horizontal-icon class="primary-icon" />
+                        <span>More</span>
                     </div>
                 </router-link>
             </li>
@@ -88,31 +97,56 @@ export default {
 
 <style scoped>
 .navbar {
-    width: 20%;
-    max-height: fit-content;
-    display: flex;
-    gap: 15px;
-    background: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    border: 2px solid #e6eae9;
-    flex-direction: column;
+    position: fixed;
+    width: 300px;
+    height: calc(115vh - 9rem);
+    z-index: 999;
+    overflow-y: auto;
+    user-select: none;
+    top: 1rem;
+    left: 1rem;
+    transition: transform .2s, left .2s;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: .5rem 1.5rem;
+    box-shadow: 0 3px 5px #00000005, 0 0 2px #0000000d, 0 1px 4px #00000014;
 }
 
 /* menu-page */
 .menu-page {
     list-style-type: none;
+    padding: 0;
 }
 
 .menu-page li {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin: 20px 0px;
     cursor: pointer;
-    color: black;
+    color: white;
+}
+
+.layout-menuitem-root-text {
+    font-size: .857rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #0f172a;
+    margin: .75rem 0;
+}
+
+.menu-page li a.active-route {
+    font-weight: 700;
+    color: #10b981;
 }
 
 .menu-page .nav-link {
     text-decoration: none;
     color: inherit;
+}
+
+span {
+    font-size: 14px;
+    font-family: "Inter var", sans-serif;
+    color: #334155;
 }
 
 .item-content {
@@ -121,10 +155,10 @@ export default {
     align-items: center;
 }
 
-.navbar-icon {
+.primary-icon {
     width: 24px;
     height: 24px;
-    color: black;
+    color: #334155;
     margin-left: 12px;
 }
 </style>
